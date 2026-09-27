@@ -13,8 +13,8 @@
 
   background:
     radial-gradient(
-      circle at 75% 20%,
-      rgba(124, 58, 237, 0.13),
+      circle at 75% 15%,
+      rgba(124, 58, 237, 0.14),
       transparent 32%
     ),
     #050507;
@@ -24,23 +24,23 @@
 
 
 /* =========================================
-   GLOW
+   BACKGROUND GLOW
 ========================================= */
 
 .how-glow {
   position: absolute;
 
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
 
-  right: -140px;
-  bottom: 5%;
+  right: -160px;
+  top: 35%;
 
   border-radius: 50%;
 
   background: rgba(124, 58, 237, 0.10);
 
-  filter: blur(90px);
+  filter: blur(100px);
 
   pointer-events: none;
 
@@ -59,58 +59,13 @@
 
   width: min(760px, calc(100% - 32px));
 
-  height: 72px;
+  min-height: 72px;
 
   margin: 0 auto;
 
   display: flex;
 
   align-items: center;
-
-  gap: 14px;
-}
-
-
-/* =========================================
-   BACK BUTTON
-========================================= */
-
-.back-button {
-  width: 34px;
-  height: 34px;
-
-  flex-shrink: 0;
-
-  display: grid;
-
-  place-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.025);
-
-  color: #ffffff;
-
-  font-size: 19px;
-
-  line-height: 1;
-
-  cursor: pointer;
-
-  touch-action: manipulation;
-
-  -webkit-tap-highlight-color: transparent;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    transform 0.15s ease;
-}
-
-.back-button:active {
-  transform: scale(0.94);
 }
 
 
@@ -133,6 +88,7 @@
 
   letter-spacing: 1.7px;
 }
+
 
 .how-logo-icon {
   width: 25px;
@@ -167,7 +123,14 @@
 
   margin: 0 auto;
 
-  padding: 24px 0 50px;
+  padding-top: 24px;
+
+  /*
+    Important:
+    This page uses normal document flow.
+    Do NOT give this a fixed height.
+  */
+  padding-bottom: 100px;
 }
 
 
@@ -176,8 +139,9 @@
 ========================================= */
 
 .how-intro {
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
+
 
 .how-eyebrow {
   margin-bottom: 11px;
@@ -190,6 +154,7 @@
 
   letter-spacing: 3px;
 }
+
 
 .how-intro h1 {
   margin: 0;
@@ -205,6 +170,7 @@
   font-weight: 700;
 }
 
+
 .how-intro h1 span {
   display: block;
 
@@ -213,8 +179,9 @@
   -webkit-text-stroke: 1px #ffffff;
 }
 
+
 .how-intro p {
-  margin: 16px 0 0;
+  margin: 17px 0 0;
 
   color: #9ca3af;
 
@@ -233,7 +200,7 @@
 
   flex-direction: column;
 
-  gap: 9px;
+  gap: 10px;
 }
 
 
@@ -246,7 +213,7 @@
 
   width: 100%;
 
-  min-height: 76px;
+  min-height: 78px;
 
   display: flex;
 
@@ -254,11 +221,11 @@
 
   gap: 15px;
 
-  padding: 13px 16px;
+  padding: 14px 16px;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
-  border-radius: 10px;
+  border-radius: 11px;
 
   background:
     linear-gradient(
@@ -267,11 +234,11 @@
       rgba(255, 255, 255, 0.012)
     );
 
+  box-sizing: border-box;
+
   transition:
     border-color 0.15s ease,
     transform 0.15s ease;
-
-  box-sizing: border-box;
 }
 
 
@@ -280,10 +247,10 @@
 ========================================= */
 
 .step-number {
-  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
 
-  width: 38px;
-  height: 38px;
+  flex-shrink: 0;
 
   display: grid;
 
@@ -313,6 +280,7 @@
   flex: 1;
 }
 
+
 .step-text h2 {
   margin: 0;
 
@@ -325,6 +293,7 @@
   letter-spacing: 1px;
 }
 
+
 .step-text p {
   margin: 5px 0 0;
 
@@ -332,21 +301,21 @@
 
   font-size: 11px;
 
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 
 /* =========================================
-   IMPORTANT STEP
+   HIGHLIGHT STEP
 ========================================= */
 
 .highlight-step {
-  border-color: rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.38);
 
   background:
     linear-gradient(
       135deg,
-      rgba(124, 58, 237, 0.12),
+      rgba(124, 58, 237, 0.13),
       rgba(255, 255, 255, 0.015)
     );
 
@@ -381,13 +350,11 @@
 
 
 /* =========================================
-   BOTTOM CTA
+   BOTTOM BUTTONS
 ========================================= */
 
 .how-bottom {
-  margin-top: 26px;
-
-  padding-top: 2px;
+  margin-top: 30px;
 
   display: flex;
 
@@ -395,30 +362,22 @@
 
   justify-content: space-between;
 
-  gap: 20px;
-}
+  gap: 14px;
 
-.how-bottom p {
-  margin: 0;
-
-  color: #666873;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 3px;
+  width: 100%;
 }
 
 
 /* =========================================
-   PLAY BUTTON
+   BUTTON
 ========================================= */
 
 .how-play-button {
-  min-width: 155px;
+  flex: 1;
 
-  height: 45px;
+  min-width: 0;
+
+  height: 46px;
 
   display: flex;
 
@@ -426,11 +385,11 @@
 
   justify-content: center;
 
-  gap: 20px;
+  gap: 14px;
 
   border: none;
 
-  border-radius: 6px;
+  border-radius: 7px;
 
   background: #7c3aed;
 
@@ -454,8 +413,27 @@
     box-shadow 0.12s ease;
 }
 
+
 .how-play-button:active {
   transform: scale(0.97);
+}
+
+
+/* =========================================
+   GO BACK BUTTON
+========================================= */
+
+.back-play-button {
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  color: #b8b9c1;
+}
+
+
+.back-play-button:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 
@@ -465,24 +443,27 @@
 
 @media (hover: hover) and (pointer: fine) {
 
-  .back-button:hover {
-    background: rgba(124, 58, 237, 0.12);
-
-    border-color: rgba(139, 92, 246, 0.45);
-  }
-
   .how-step:hover {
     border-color: rgba(139, 92, 246, 0.25);
 
     transform: translateY(-1px);
   }
 
-  .how-play-button:hover {
+
+  .how-play-button:not(.back-play-button):hover {
     background: #8b5cf6;
 
     box-shadow:
       0 0 30px rgba(124, 58, 237, 0.30);
   }
+
+
+  .back-play-button:hover {
+    border-color: rgba(139, 92, 246, 0.30);
+
+    color: #ffffff;
+  }
+
 }
 
 
@@ -495,7 +476,7 @@
   .how-header {
     width: calc(100% - 28px);
 
-    height: 64px;
+    min-height: 64px;
   }
 
 
@@ -504,17 +485,16 @@
 
     padding-top: 18px;
 
-    padding-bottom: 36px;
+    padding-bottom: 90px;
   }
 
 
-  /* =====================================
-     INTRO
-  ===================================== */
+  /* INTRO */
 
   .how-intro {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
   }
+
 
   .how-eyebrow {
     margin-bottom: 9px;
@@ -524,11 +504,13 @@
     letter-spacing: 2.5px;
   }
 
+
   .how-intro h1 {
     font-size: clamp(40px, 12vw, 54px);
 
     letter-spacing: -2.5px;
   }
+
 
   .how-intro p {
     margin-top: 13px;
@@ -539,9 +521,7 @@
   }
 
 
-  /* =====================================
-     STEPS
-  ===================================== */
+  /* STEPS */
 
   .how-steps {
     gap: 8px;
@@ -549,9 +529,9 @@
 
 
   .how-step {
-    min-height: 70px;
+    min-height: 74px;
 
-    padding: 11px 12px;
+    padding: 12px;
 
     gap: 12px;
 
@@ -581,7 +561,7 @@
 
     font-size: 10px;
 
-    line-height: 1.35;
+    line-height: 1.4;
   }
 
 
@@ -592,33 +572,23 @@
   }
 
 
-  /* =====================================
-     CTA
-  ===================================== */
+  /* BOTTOM BUTTONS */
 
   .how-bottom {
-    margin-top: 20px;
+    margin-top: 22px;
 
-    gap: 12px;
-  }
-
-
-  .how-bottom p {
-    font-size: 8px;
-
-    letter-spacing: 2.5px;
+    gap: 10px;
   }
 
 
   .how-play-button {
-    min-width: 140px;
-
     height: 43px;
 
     font-size: 8px;
 
-    gap: 15px;
+    gap: 10px;
   }
+
 }
 
 
@@ -629,7 +599,7 @@
 @media (max-width: 380px) {
 
   .how-header {
-    height: 62px;
+    min-height: 62px;
   }
 
 
@@ -638,12 +608,12 @@
 
     padding-top: 15px;
 
-    padding-bottom: 32px;
+    padding-bottom: 80px;
   }
 
 
   .how-intro {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
   }
 
 
@@ -662,9 +632,9 @@
 
 
   .how-step {
-    min-height: 64px;
+    min-height: 68px;
 
-    padding: 9px 10px;
+    padding: 10px;
 
     gap: 10px;
   }
@@ -696,22 +666,18 @@
 
 
   .how-bottom {
-    margin-top: 17px;
+    margin-top: 18px;
 
     gap: 8px;
   }
 
 
-  .how-bottom p {
-    font-size: 7px;
-  }
-
-
   .how-play-button {
-    min-width: 130px;
-
     height: 41px;
 
     font-size: 7.5px;
+
+    gap: 7px;
   }
+
 }

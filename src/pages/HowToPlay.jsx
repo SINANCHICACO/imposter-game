@@ -13,20 +13,18 @@ function HowToPlay() {
   return (
     <main className="how-page">
 
-      {/* Background */}
+      {/* =========================================
+          BACKGROUND
+      ========================================= */}
+
       <div className="how-glow"></div>
 
 
-      {/* Header */}
-      <header className="how-header">
+      {/* =========================================
+          HEADER
+      ========================================= */}
 
-        <button
-          className="back-button"
-          onClick={goBack}
-          aria-label="Go back"
-        >
-          ←
-        </button>
+      <header className="how-header">
 
         <div className="how-logo">
           <span className="how-logo-icon">?</span>
@@ -36,8 +34,16 @@ function HowToPlay() {
       </header>
 
 
-      {/* Main Content */}
+      {/* =========================================
+          MAIN CONTENT
+      ========================================= */}
+
       <section className="how-content">
+
+
+        {/* =========================================
+            INTRO
+        ========================================= */}
 
         <div className="how-intro">
 
@@ -59,11 +65,17 @@ function HowToPlay() {
         </div>
 
 
-        {/* Steps */}
+        {/* =========================================
+            GAME STEPS
+        ========================================= */}
+
         <div className="how-steps">
 
 
-          {/* Step 01 */}
+          {/* =====================================
+              STEP 01
+          ===================================== */}
+
           <div className="how-step">
 
             <div className="step-number">
@@ -71,17 +83,24 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>ADD PLAYERS</h2>
+
+              <h2>
+                ADD PLAYERS
+              </h2>
 
               <p>
                 Add everyone who is playing.
               </p>
+
             </div>
 
           </div>
 
 
-          {/* Step 02 */}
+          {/* =====================================
+              STEP 02
+          ===================================== */}
+
           <div className="how-step">
 
             <div className="step-number">
@@ -89,17 +108,24 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>CHOOSE A CATEGORY</h2>
+
+              <h2>
+                CHOOSE A CATEGORY
+              </h2>
 
               <p>
                 Pick a category for the secret word.
               </p>
+
             </div>
 
           </div>
 
 
-          {/* Step 03 */}
+          {/* =====================================
+              STEP 03
+          ===================================== */}
+
           <div className="how-step highlight-step">
 
             <div className="step-number">
@@ -107,12 +133,16 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>HOLD TO REVEAL</h2>
+
+              <h2>
+                HOLD TO REVEAL
+              </h2>
 
               <p>
                 Hold your card to see your role.
                 Players get the word. The imposter gets a hint.
               </p>
+
             </div>
 
             <div className="hold-indicator">
@@ -122,7 +152,10 @@ function HowToPlay() {
           </div>
 
 
-          {/* Step 04 */}
+          {/* =====================================
+              STEP 04
+          ===================================== */}
+
           <div className="how-step">
 
             <div className="step-number">
@@ -130,17 +163,24 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>GIVE CLUES</h2>
+
+              <h2>
+                GIVE CLUES
+              </h2>
 
               <p>
                 Share examples about the word without saying it.
               </p>
+
             </div>
 
           </div>
 
 
-          {/* Step 05 */}
+          {/* =====================================
+              STEP 05
+          ===================================== */}
+
           <div className="how-step">
 
             <div className="step-number">
@@ -148,17 +188,24 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>FIND THE IMPOSTER</h2>
+
+              <h2>
+                FIND THE IMPOSTER
+              </h2>
 
               <p>
                 The imposter uses your clues to guess the word.
               </p>
+
             </div>
 
           </div>
 
 
-          {/* Step 06 */}
+          {/* =====================================
+              STEP 06
+          ===================================== */}
+
           <div className="how-step">
 
             <div className="step-number">
@@ -166,32 +213,64 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>REVEAL</h2>
+
+              <h2>
+                REVEAL
+              </h2>
 
               <p>
                 Reveal the imposter and see if they guessed the word.
               </p>
+
             </div>
 
           </div>
 
+
         </div>
 
 
-        {/* Bottom CTA */}
+        {/* =========================================
+            BOTTOM BUTTONS
+        ========================================= */}
+
         <div className="how-bottom">
 
-          <p>READY?</p>
+
+          {/* GO BACK */}
+
+          <button
+            className="how-play-button back-play-button"
+            onClick={goBack}
+          >
+            <span>
+              ←
+            </span>
+
+            <span>
+              GO BACK
+            </span>
+          </button>
+
+
+          {/* PLAY GAME */}
 
           <button
             className="how-play-button"
             onClick={startGame}
           >
-            <span>PLAY GAME</span>
-            <span>→</span>
+            <span>
+              PLAY GAME
+            </span>
+
+            <span>
+              →
+            </span>
           </button>
 
+
         </div>
+
 
       </section>
 
