@@ -1,122 +1,143 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import "./App.css";
+import imposterCharacter from "./assets/imposter-home-character.png";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <main className="home-page">
+
+      {/* Background glow */}
+      <div className="violet-glow glow-one"></div>
+      <div className="violet-glow glow-two"></div>
+
+      {/* Navigation */}
+      <nav className="navbar">
+        <div className="brand">
+          <span className="brand-mark">?</span>
+          <span>IMPOSTER</span>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+
+        <div className="nav-links">
+          <a href="#home">Home</a>
+          <a href="#how-to-play">How to Play</a>
+          <a href="#about">About</a>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
+
+        <button className="nav-play">
+          Play Now
         </button>
+      </nav>
+
+      {/* Hero */}
+      <section className="hero" id="home">
+
+        <div className="hero-content">
+
+          <p className="eyebrow">
+            THE GAME OF DECEPTION
+          </p>
+
+          <h1>
+            LET'S FIND
+            <span>THE IMPOSTER.</span>
+          </h1>
+
+          <p className="hero-description">
+            Everyone has a secret. Everyone has a clue.
+            But one of them doesn't know the word.
+          </p>
+
+          <div className="hero-buttons">
+            <button className="primary-button">
+              PLAY GAME
+              <span>→</span>
+            </button>
+
+            <button className="secondary-button">
+              HOW TO PLAY
+            </button>
+          </div>
+
+          <div className="hero-meta">
+            <div>
+              <strong>3+</strong>
+              <span>PLAYERS</span>
+            </div>
+
+            <div className="meta-line"></div>
+
+            <div>
+              <strong>1</strong>
+              <span>IMPOSTER</span>
+            </div>
+
+            <div className="meta-line"></div>
+
+            <div>
+              <strong>∞</strong>
+              <span>ROUNDS</span>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Character */}
+        <div className="character-area">
+
+          <div className="character-ring"></div>
+
+          <div className="character-glow"></div>
+
+          <img
+            src={imposterCharacter}
+            alt="Imposter character"
+            className="character-image"
+          />
+
+          <div className="floating-card card-one">
+            <span>?</span>
+            WHO IS LYING?
+          </div>
+
+          <div className="floating-card card-two">
+            <span>01</span>
+            FIND THE CLUE
+          </div>
+
+        </div>
+
       </section>
 
-      <div className="ticks"></div>
+      {/* Bottom strip */}
+      <section className="feature-strip">
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        <div className="feature">
+          <div className="feature-number">01</div>
+          <div>
+            <h3>SECRET WORD</h3>
+            <p>Everyone gets the same word.</p>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+
+        <div className="feature">
+          <div className="feature-number">02</div>
+          <div>
+            <h3>ONE IMPOSTER</h3>
+            <p>Except one player doesn't.</p>
+          </div>
         </div>
+
+        <div className="feature">
+          <div className="feature-number">03</div>
+          <div>
+            <h3>FIND THEM</h3>
+            <p>Listen carefully. Trust nobody.</p>
+          </div>
+        </div>
+
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    </main>
+  );
 }
 
-export default App
+export default App;
