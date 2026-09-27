@@ -1,0 +1,183 @@
+import "./HowToPlay.css";
+
+function HowToPlay() {
+  const goBack = () => {
+    window.location.hash = "";
+  };
+
+  const startGame = () => {
+    // Add Players page will be connected here later
+    console.log("Start game");
+  };
+
+  return (
+    <main className="how-page">
+
+      {/* Background */}
+      <div className="how-glow"></div>
+
+
+      {/* Header */}
+      <header className="how-header">
+
+        <button
+          className="back-button"
+          onClick={goBack}
+          aria-label="Go back"
+        >
+          ←
+        </button>
+
+        <div className="how-logo">
+          <span className="how-logo-icon">?</span>
+          <span>IMPOSTER</span>
+        </div>
+
+      </header>
+
+
+      {/* Main Content */}
+      <section className="how-content">
+
+        <div className="how-intro">
+
+          <div className="how-eyebrow">
+            HOW TO PLAY
+          </div>
+
+          <h1>
+            FIND THE
+            <span>IMPOSTER.</span>
+          </h1>
+
+          <p>
+            One secret. One imposter.
+            <br />
+            Can you find them?
+          </p>
+
+        </div>
+
+
+        {/* Steps */}
+        <div className="how-steps">
+
+
+          {/* Step 01 */}
+          <div className="how-step">
+
+            <div className="step-number">
+              01
+            </div>
+
+            <div className="step-text">
+              <h2>ADD PLAYERS</h2>
+
+              <p>
+                Add everyone who is playing.
+              </p>
+            </div>
+
+          </div>
+
+
+          {/* Step 02 */}
+          <div className="how-step">
+
+            <div className="step-number">
+              02
+            </div>
+
+            <div className="step-text">
+              <h2>CHOOSE A CATEGORY</h2>
+
+              <p>
+                Pick a category for the secret word.
+              </p>
+            </div>
+
+          </div>
+
+
+          {/* Step 03 */}
+          <div className="how-step highlight-step">
+
+            <div className="step-number">
+              03
+            </div>
+
+            <div className="step-text">
+              <h2>HOLD TO REVEAL</h2>
+
+              <p>
+                Hold your card to see your role.
+              </p>
+            </div>
+
+            <div className="hold-indicator">
+              HOLD
+            </div>
+
+          </div>
+
+
+          {/* Step 04 */}
+          <div className="how-step">
+
+            <div className="step-number">
+              04
+            </div>
+
+            <div className="step-text">
+              <h2>DISCUSS</h2>
+
+              <p>
+                Talk, question and find the imposter.
+              </p>
+            </div>
+
+          </div>
+
+
+          {/* Step 05 */}
+          <div className="how-step">
+
+            <div className="step-number">
+              05
+            </div>
+
+            <div className="step-text">
+              <h2>REVEAL</h2>
+
+              <p>
+                Reveal the imposter and see if you were right.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* Bottom CTA */}
+        <div className="how-bottom">
+
+          <p>READY?</p>
+
+          <button
+            className="how-play-button"
+            onClick={startGame}
+          >
+            <span>PLAY GAME</span>
+            <span>→</span>
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+  );
+}
+
+export default HowToPlay;

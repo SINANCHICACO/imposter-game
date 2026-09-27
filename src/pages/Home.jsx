@@ -2,103 +2,108 @@ import "./Home.css";
 import imposterCharacter from "../assets/imposter-character.png";
 
 function Home() {
-  return (
-    <main className="home-page">
+    return (
+        <main className="home-page">
 
-      {/* ================= BACKGROUND EFFECTS ================= */}
+            {/* ================= BACKGROUND EFFECTS ================= */}
 
-      <div className="home-glow home-glow-one"></div>
-      <div className="home-glow home-glow-two"></div>
-
-
-      {/* ================= HEADER ================= */}
-
-      <header className="home-header">
-
-        <div className="home-logo">
-          <span className="logo-icon">?</span>
-          <span className="logo-name">IMPOSTER</span>
-        </div>
-
-      </header>
+            <div className="home-glow home-glow-one"></div>
+            <div className="home-glow home-glow-two"></div>
 
 
-      {/* ================= HERO ================= */}
+            {/* ================= HEADER ================= */}
 
-      <section className="home-hero">
+            <header className="home-header">
 
+                <div className="home-logo">
+                    <span className="logo-icon">?</span>
+                    <span className="logo-name">IMPOSTER</span>
+                </div>
 
-        {/* ================= TEXT CONTENT ================= */}
-
-        <div className="home-content">
-
-          {/* Eyebrow */}
-
-          <div className="home-eyebrow">
-            <span className="eyebrow-dot"></span>
-            THE GAME OF DECEPTION
-          </div>
+            </header>
 
 
-          {/* Main Heading */}
+            {/* ================= HERO ================= */}
 
-          <h1 className="home-title">
-            LET'S FIND
-            <span>THE IMPOSTER.</span>
-          </h1>
+            <section className="home-hero">
 
 
-          {/* Buttons */}
+                {/* ================= TEXT CONTENT ================= */}
 
-          <div className="home-actions">
+                <div className="home-content">
 
-            <button className="play-button">
-              <span>PLAY GAME</span>
-              <span className="play-arrow">→</span>
-            </button>
+                    {/* Eyebrow */}
 
-            <button className="how-button">
-              HOW TO PLAY
-            </button>
-
-          </div>
-
-        </div>
+                    <div className="home-eyebrow">
+                        <span className="eyebrow-dot"></span>
+                        THE GAME OF DECEPTION
+                    </div>
 
 
-        {/* ================= CHARACTER ================= */}
+                    {/* Main Heading */}
 
-        <div className="home-character">
-
-          {/* Character Glow */}
-
-          <div className="character-glow"></div>
-
-
-          {/* Outer Ring */}
-
-          <div className="character-ring character-ring-outer"></div>
+                    <h1 className="home-title">
+                        LET'S FIND
+                        <span>THE IMPOSTER.</span>
+                    </h1>
 
 
-          {/* Inner Ring */}
+                    {/* Buttons */}
 
-          <div className="character-ring character-ring-inner"></div>
+                    <div className="home-actions">
+
+                        <button className="play-button">
+                            <span>PLAY GAME</span>
+                            <span className="play-arrow">→</span>
+                        </button>
+
+                        <button
+                            className="how-button"
+                            onClick={() => {
+                                window.location.hash = "how-to-play";
+                            }}
+                        >
+                            HOW TO PLAY
+                        </button>
+
+                    </div>
+
+                </div>
 
 
-          {/* Character Image */}
+                {/* ================= CHARACTER ================= */}
 
-          <img
-            src={imposterCharacter}
-            alt="Imposter character"
-            className="character-image"
-          />
+                <div className="home-character">
 
-        </div>
+                    {/* Character Glow */}
 
-      </section>
+                    <div className="character-glow"></div>
 
-    </main>
-  );
+
+                    {/* Outer Ring */}
+
+                    <div className="character-ring character-ring-outer"></div>
+
+
+                    {/* Inner Ring */}
+
+                    <div className="character-ring character-ring-inner"></div>
+
+
+                    {/* Character Image */}
+
+                    <img
+                        src={imposterCharacter}
+                        alt="Imposter character"
+                        className="character-image"
+                    />
+
+                </div>
+
+            </section>
+
+        </main>
+    );
 }
 
 export default Home;
