@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import "./AddPlayers.css";
-
+import removeX from "../assets/remove-x.png";
 
 function AddPlayers({
   players,
@@ -11,14 +11,11 @@ function AddPlayers({
   goTo,
   startGame,
 }) {
-
-
   /* =========================================
      INPUT REFERENCES
   ========================================= */
 
   const inputRefs = useRef([]);
-
   const shouldFocusNewPlayer = useRef(false);
 
 
@@ -27,21 +24,26 @@ function AddPlayers({
   ========================================= */
 
   useEffect(() => {
-
     if (!shouldFocusNewPlayer.current) {
       return;
     }
 
     const newIndex = players.length - 1;
-
     const newInput = inputRefs.current[newIndex];
 
     if (newInput) {
       newInput.focus();
+
+      // Keep the page position stable on mobile
+      requestAnimationFrame(() => {
+        newInput.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      });
     }
 
     shouldFocusNewPlayer.current = false;
-
   }, [players.length]);
 
 
@@ -50,14 +52,12 @@ function AddPlayers({
   ========================================= */
 
   const addPlayer = () => {
-
     shouldFocusNewPlayer.current = true;
 
     setPlayers([
       ...players,
       "",
     ]);
-
   };
 
 
@@ -66,7 +66,6 @@ function AddPlayers({
   ========================================= */
 
   const updatePlayer = (index, value) => {
-
     const updatedPlayers = [
       ...players,
     ];
@@ -74,7 +73,6 @@ function AddPlayers({
     updatedPlayers[index] = value;
 
     setPlayers(updatedPlayers);
-
   };
 
 
@@ -83,19 +81,16 @@ function AddPlayers({
   ========================================= */
 
   const removePlayer = (index) => {
-
     if (players.length <= 1) {
       return;
     }
 
-    const updatedPlayers =
-      players.filter(
-        (_, playerIndex) =>
-          playerIndex !== index
-      );
+    const updatedPlayers = players.filter(
+      (_, playerIndex) =>
+        playerIndex !== index
+    );
 
     setPlayers(updatedPlayers);
-
   };
 
 
@@ -122,19 +117,17 @@ function AddPlayers({
   return (
     <main className="players-page">
 
-
-      {/* =========================================
+      {/* =====================================
           BACKGROUND
-      ========================================= */}
+      ===================================== */}
 
       <div className="players-glow players-glow-one"></div>
-
       <div className="players-glow players-glow-two"></div>
 
 
-      {/* =========================================
+      {/* =====================================
           HEADER
-      ========================================= */}
+      ===================================== */}
 
       <header className="players-header">
 
@@ -158,16 +151,16 @@ function AddPlayers({
       </header>
 
 
-      {/* =========================================
+      {/* =====================================
           MAIN CONTENT
-      ========================================= */}
+      ===================================== */}
 
       <section className="players-content">
 
 
-        {/* =========================================
+        {/* =====================================
             INTRO
-        ========================================= */}
+        ===================================== */}
 
         <div className="players-intro">
 
@@ -175,12 +168,10 @@ function AddPlayers({
             GAME SETUP
           </div>
 
-
           <h1>
             ADD
             <span>PLAYERS.</span>
           </h1>
-
 
           <p>
             Add everyone who is playing.
@@ -189,14 +180,13 @@ function AddPlayers({
         </div>
 
 
-        {/* =========================================
+        {/* =====================================
             PLAYERS
-        ========================================= */}
+        ===================================== */}
 
         <section className="players-section">
 
-
-          {/* Section Heading */}
+          {/* SECTION HEADING */}
 
           <div className="section-heading">
 
@@ -212,7 +202,6 @@ function AddPlayers({
 
             </div>
 
-
             <span className="player-count">
               {playerCount}
             </span>
@@ -220,9 +209,7 @@ function AddPlayers({
           </div>
 
 
-          {/* =====================================
-              PLAYER INPUTS
-          ===================================== */}
+          {/* PLAYER INPUTS */}
 
           <div className="player-list">
 
@@ -234,8 +221,7 @@ function AddPlayers({
                   key={index}
                 >
 
-
-                  {/* Player Number */}
+                  {/* PLAYER NUMBER */}
 
                   <span className="player-number">
                     {String(index + 1).padStart(
@@ -245,7 +231,7 @@ function AddPlayers({
                   </span>
 
 
-                  {/* Player Name */}
+                  {/* PLAYER NAME */}
 
                   <input
                     ref={(element) => {
@@ -263,6 +249,10 @@ function AddPlayers({
                     placeholder="Enter player name..."
                     maxLength={20}
                     autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="words"
+                    spellCheck="false"
+                    inputMode="text"
                     autoFocus={
                       index === 0 &&
                       players.length === 1
@@ -270,7 +260,7 @@ function AddPlayers({
                   />
 
 
-                  {/* Remove Player */}
+                  {/* REMOVE PLAYER */}
 
                   {players.length > 1 && (
 
@@ -280,11 +270,14 @@ function AddPlayers({
                       onClick={() =>
                         removePlayer(index)
                       }
-                      aria-label={
-                        `Remove player ${index + 1}`
-                      }
+                      aria-label={`Remove player ${index + 1}`}
                     >
-                      ×
+
+                      <img
+                        src={removeX}
+                        alt=""
+                      />
+
                     </button>
 
                   )}
@@ -297,9 +290,7 @@ function AddPlayers({
           </div>
 
 
-          {/* =====================================
-              ADD PLAYER
-          ===================================== */}
+          {/* ADD PLAYER */}
 
           <button
             className="add-player-button"
@@ -317,18 +308,14 @@ function AddPlayers({
 
           </button>
 
-
         </section>
 
 
-        {/* =========================================
+        {/* =====================================
             CATEGORY
-        ========================================= */}
+        ===================================== */}
 
         <section className="setup-section">
-
-
-          {/* Section Heading */}
 
           <div className="section-heading">
 
@@ -347,7 +334,7 @@ function AddPlayers({
           </div>
 
 
-          {/* Category Navigation */}
+          {/* CATEGORY NAVIGATION */}
 
           <button
             className={`setup-navigation ${
@@ -361,66 +348,46 @@ function AddPlayers({
             }
           >
 
-
-            {/* Icon */}
-
             <span className="setup-icon">
               ◈
             </span>
 
 
-            {/* Category Information */}
-
             <span className="setup-info">
-
-
-              {/* Main Text */}
 
               <strong>
 
                 {selectedCategories.length > 0
-
                   ? `${selectedCategories.length} ${
                       selectedCategories.length === 1
                         ? "CATEGORY"
                         : "CATEGORIES"
                     } SELECTED`
-
                   : "CHOOSE CATEGORIES"}
 
               </strong>
 
 
-              {/* Selected Categories */}
-
               <small>
 
                 {selectedCategories.length > 0
-
                   ? selectedCategories.join(", ")
-
                   : "Select one or more categories"}
 
               </small>
 
-
             </span>
 
-
           </button>
-
 
         </section>
 
 
-        {/* =========================================
+        {/* =====================================
             SETTINGS
-        ========================================= */}
+        ===================================== */}
 
         <section className="setup-section">
-
-
-          {/* Section Heading */}
 
           <div className="section-heading">
 
@@ -439,7 +406,7 @@ function AddPlayers({
           </div>
 
 
-          {/* Settings Navigation */}
+          {/* SETTINGS NAVIGATION */}
 
           <button
             className="setup-navigation"
@@ -448,7 +415,6 @@ function AddPlayers({
               goTo("settings")
             }
           >
-
 
             <span className="setup-icon">
               ⚙
@@ -461,27 +427,22 @@ function AddPlayers({
                 HINT FOR IMPOSTER
               </strong>
 
-
               <small>
-
                 {hintEnabled
                   ? "Enabled"
                   : "Disabled"}
-
               </small>
 
             </span>
 
-
           </button>
-
 
         </section>
 
 
-        {/* =========================================
+        {/* =====================================
             START GAME
-        ========================================= */}
+        ===================================== */}
 
         <button
           className={`start-game-button ${
@@ -503,9 +464,9 @@ function AddPlayers({
         </button>
 
 
-        {/* =========================================
+        {/* =====================================
             START GAME MESSAGE
-        ========================================= */}
+        ===================================== */}
 
         {!canStart && (
 
@@ -513,22 +474,18 @@ function AddPlayers({
 
             {playerCount < 3
               ? "Add at least 3 players."
-
               : selectedCategories.length === 0
                 ? "Choose at least one category."
-
                 : ""}
 
           </p>
 
         )}
 
-
       </section>
 
     </main>
   );
 }
-
 
 export default AddPlayers;

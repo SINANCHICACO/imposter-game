@@ -211,6 +211,10 @@
 }
 
 
+/* =========================================
+   SECTION HEADING
+========================================= */
+
 .section-heading {
   display: flex;
 
@@ -290,6 +294,10 @@
 }
 
 
+/* =========================================
+   PLAYER INPUT ROW
+========================================= */
+
 .player-input-row {
   min-height: 54px;
 
@@ -320,6 +328,10 @@
 }
 
 
+/* =========================================
+   PLAYER NUMBER
+========================================= */
+
 .player-number {
   width: 24px;
 
@@ -335,12 +347,18 @@
 }
 
 
+/* =========================================
+   PLAYER NAME INPUT
+========================================= */
+
 .player-input-row input {
   min-width: 0;
 
   flex: 1;
 
   height: 100%;
+
+  min-height: 52px;
 
   border: none;
 
@@ -350,20 +368,47 @@
 
   color: #ffffff;
 
-  font-size: 12px;
+  /*
+    IMPORTANT:
+    Keep this at 16px or larger on touch devices.
+    This prevents automatic browser zoom when
+    the input receives focus.
+  */
+
+  font-size: 16px;
+
+  font-family: inherit;
+
+  line-height: 1.2;
+
+  -webkit-appearance: none;
+
+  appearance: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
 }
 
 
 .player-input-row input::placeholder {
   color: #666873;
+
+  opacity: 1;
 }
 
 
+/* =========================================
+   REMOVE PLAYER BUTTON
+========================================= */
+
 .remove-player {
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
 
   flex-shrink: 0;
+
+  padding: 7px;
 
   display: grid;
 
@@ -375,20 +420,31 @@
 
   background: rgba(255, 255, 255, 0.04);
 
-  color: #777883;
-
-  font-size: 17px;
-
-  line-height: 1;
-
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.remove-player img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
 }
 
 
 .remove-player:active {
-  transform: scale(0.92);
+  transform: scale(0.90);
 }
 
 
@@ -428,6 +484,8 @@
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
 }
 
 
@@ -451,7 +509,7 @@
 
   display: flex;
 
-  align-items: center;
+  align-items: flex-start;
 
   gap: 13px;
 
@@ -476,6 +534,8 @@
 
   -webkit-tap-highlight-color: transparent;
 
+  touch-action: manipulation;
+
   transition:
     border-color 0.15s ease,
     background 0.15s ease;
@@ -494,11 +554,17 @@
 }
 
 
+/* =========================================
+   SETUP ICON
+========================================= */
+
 .setup-icon {
   width: 38px;
   height: 38px;
 
   flex-shrink: 0;
+
+  margin-top: 2px;
 
   display: grid;
 
@@ -513,6 +579,10 @@
   font-size: 17px;
 }
 
+
+/* =========================================
+   SETUP INFO
+========================================= */
 
 .setup-info {
   min-width: 0;
@@ -550,15 +620,12 @@
   color: #747580;
 
   font-size: 9px;
-}
 
+  line-height: 1.4;
 
-.setup-arrow {
-  flex-shrink: 0;
+  white-space: normal;
 
-  color: #a855f7;
-
-  font-size: 18px;
+  overflow-wrap: anywhere;
 }
 
 
@@ -597,6 +664,8 @@
 
   cursor: not-allowed;
 
+  -webkit-tap-highlight-color: transparent;
+
   transition:
     background 0.15s ease,
     box-shadow 0.15s ease,
@@ -626,12 +695,9 @@
 }
 
 
-.start-game-arrow {
-  margin-left: 6px;
-
-  font-size: 16px;
-}
-
+/* =========================================
+   START GAME NOTE
+========================================= */
 
 .start-game-note {
   margin: 9px 0 0;
@@ -670,9 +736,9 @@
 
 
   .remove-player:hover {
-    border-color: rgba(239, 68, 68, 0.30);
+    border-color: rgba(139, 92, 246, 0.40);
 
-    color: #ffffff;
+    background: rgba(124, 58, 237, 0.10);
   }
 
 
@@ -725,8 +791,10 @@
   }
 
 
+  /* PLAYER ROW */
+
   .player-input-row {
-    min-height: 52px;
+    min-height: 54px;
 
     padding: 0 10px;
   }
@@ -737,15 +805,45 @@
   }
 
 
+  /*
+    DO NOT reduce this below 16px.
+    This prevents mobile browser input zoom.
+  */
+
   .player-input-row input {
-    font-size: 11px;
+    min-height: 52px;
+
+    font-size: 16px;
+
+    line-height: 1.2;
   }
 
+
+  /* REMOVE BUTTON */
+
+  .remove-player {
+    width: 30px;
+    height: 30px;
+
+    padding: 7px;
+  }
+
+
+  /* SETUP */
 
   .setup-navigation {
     min-height: 63px;
+
+    align-items: flex-start;
   }
 
+
+  .setup-icon {
+    margin-top: 1px;
+  }
+
+
+  /* START */
 
   .start-game-button {
     height: 52px;
@@ -778,7 +876,29 @@
 
 
   .player-input-row {
+    min-height: 52px;
+
+    padding: 0 9px;
+  }
+
+
+  .player-input-row input {
     min-height: 50px;
+
+    /*
+      Still 16px — do NOT make this smaller.
+      Smaller text can cause mobile zoom.
+    */
+
+    font-size: 16px;
+  }
+
+
+  .remove-player {
+    width: 29px;
+    height: 29px;
+
+    padding: 7px;
   }
 
 
