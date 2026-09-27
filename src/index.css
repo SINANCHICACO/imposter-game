@@ -21,6 +21,15 @@ html {
 
   overflow-x: hidden;
   overflow-y: auto;
+
+  /* Hide scrollbar globally */
+  scrollbar-width: none;
+}
+
+
+/* Chrome / Edge / Safari */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -39,6 +48,15 @@ body {
 
   overflow-x: hidden;
   overflow-y: auto;
+
+  /* Hide scrollbar globally */
+  scrollbar-width: none;
+}
+
+
+/* Chrome / Edge / Safari */
+body::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -47,6 +65,10 @@ body {
   min-height: 100vh;
 }
 
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
 
 button,
 input,
@@ -61,6 +83,11 @@ button {
 }
 
 
+/* =========================================
+   IMAGES
+========================================= */
+
 img {
   max-width: 100%;
+  display: block;
 }
