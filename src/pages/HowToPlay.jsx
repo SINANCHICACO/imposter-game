@@ -111,6 +111,7 @@ function HowToPlay() {
 
               <p>
                 Hold your card to see your role.
+                Players get the word. The imposter gets a hint.
               </p>
             </div>
 
@@ -129,10 +130,10 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
-              <h2>DISCUSS</h2>
+              <h2>GIVE CLUES</h2>
 
               <p>
-                Talk, question and find the imposter.
+                Share examples about the word without saying it.
               </p>
             </div>
 
@@ -147,10 +148,28 @@ function HowToPlay() {
             </div>
 
             <div className="step-text">
+              <h2>FIND THE IMPOSTER</h2>
+
+              <p>
+                The imposter uses your clues to guess the word.
+              </p>
+            </div>
+
+          </div>
+
+
+          {/* Step 06 */}
+          <div className="how-step">
+
+            <div className="step-number">
+              06
+            </div>
+
+            <div className="step-text">
               <h2>REVEAL</h2>
 
               <p>
-                Reveal the imposter and see if you were right.
+                Reveal the imposter and see if they guessed the word.
               </p>
             </div>
 
