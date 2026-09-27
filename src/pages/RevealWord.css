@@ -1,0 +1,1060 @@
+/* =========================================
+   REVEAL PAGE
+========================================= */
+
+.reveal-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(124, 58, 237, 0.13),
+      transparent 35%
+    ),
+    #050507;
+
+  color: #ffffff;
+
+  touch-action: manipulation;
+}
+
+
+/* =========================================
+   GLOW
+========================================= */
+
+.reveal-glow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  left: 50%;
+  top: 42%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(124, 58, 237, 0.08);
+
+  filter: blur(110px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.reveal-header {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(
+      760px,
+      calc(100% - 32px)
+    );
+
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.reveal-back {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  padding: 7px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action: manipulation;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.reveal-back img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+.reveal-back:active {
+  transform: scale(0.92);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.reveal-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+
+.reveal-logo-icon {
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid #8b5cf6;
+
+  border-radius: 50%;
+
+  color: #a855f7;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.reveal-progress {
+  margin-left: auto;
+
+  color: #686973;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.reveal-content {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(
+      500px,
+      calc(100% - 32px)
+    );
+
+  margin: 0 auto;
+
+  padding:
+    30px
+    0
+    70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   PLAYER INFO
+========================================= */
+
+.reveal-player-info {
+  width: 100%;
+
+  margin-bottom: 28px;
+
+  text-align: center;
+}
+
+
+.reveal-eyebrow {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #a855f7;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+
+.reveal-player-info h1 {
+  margin: 0;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size:
+    clamp(
+      28px,
+      7vw,
+      40px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -1.5px;
+}
+
+
+.reveal-player-info p {
+  margin: 10px 0 0;
+
+  color: #666873;
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   REVEAL CARD
+========================================= */
+
+.reveal-card {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.35);
+
+  text-align: center;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  -webkit-touch-callout: none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action: none;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.reveal-card.holding {
+  border-color:
+    rgba(139, 92, 246, 0.70);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(124, 58, 237, 0.13),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  transform: scale(0.985);
+}
+
+
+/* =========================================
+   CARD NUMBER
+========================================= */
+
+.reveal-card-number {
+  position: absolute;
+
+  top: 18px;
+  left: 20px;
+
+  color: #50515b;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   HOLD CONTENT
+========================================= */
+
+.hold-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0;
+}
+
+
+/* =========================================
+   HOLD ICON
+========================================= */
+
+.hold-icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 22px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(139, 92, 246, 0.35);
+
+  border-radius: 50%;
+
+  color: #8b5cf6;
+
+  font-size: 15px;
+
+  box-shadow:
+    0 0 30px
+    rgba(124, 58, 237, 0.12);
+}
+
+
+/* =========================================
+   HOLD TITLE
+========================================= */
+
+.hold-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================
+   HOLD DESCRIPTION
+========================================= */
+
+.hold-content p {
+  margin: 12px 0 0;
+
+  color: #686973;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   WORD CONTENT
+========================================= */
+
+.word-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.word-label {
+  margin-bottom: 16px;
+
+  color: #a855f7;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+
+.secret-word {
+  max-width: 100%;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size:
+    clamp(
+      30px,
+      8vw,
+      50px
+    );
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.2px;
+
+  overflow-wrap: anywhere;
+}
+
+
+.word-category {
+  margin-top: 18px;
+
+  padding:
+    6px
+    10px;
+
+  border:
+    1px solid
+    rgba(139, 92, 246, 0.20);
+
+  border-radius: 5px;
+
+  color: #777883;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   IMPOSTER CONTENT
+========================================= */
+
+.imposter-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   IMPOSTER SYMBOL
+========================================= */
+
+.imposter-symbol {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 17px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.50);
+
+  border-radius: 50%;
+
+  color: #c084fc;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   IMPOSTER LABEL
+========================================= */
+
+.imposter-label {
+  margin-bottom: 9px;
+
+  color: #a855f7;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   IMPOSTER TITLE
+========================================= */
+
+.imposter-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.15;
+
+  letter-spacing: 0;
+}
+
+
+.imposter-content h2 span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #c084fc;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   HINT
+========================================= */
+
+.hint-reveal {
+  min-width: 150px;
+
+  margin-top: 25px;
+
+  padding:
+    12px
+    20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border:
+    1px solid
+    rgba(139, 92, 246, 0.25);
+
+  border-radius: 8px;
+
+  background:
+    rgba(124, 58, 237, 0.07);
+}
+
+
+.hint-reveal span {
+  color: #777883;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.hint-reveal strong {
+  color: #ffffff;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.1;
+}
+
+
+.no-hint {
+  margin: 20px 0 0;
+
+  color: #666873;
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   INSTRUCTION
+========================================= */
+
+.reveal-instruction {
+  min-height: 25px;
+
+  margin-top: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #666873;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   NEXT PLAYER
+========================================= */
+
+.next-player-button {
+  width: 100%;
+
+  height: 50px;
+
+  margin-top: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  color: #45464f;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  cursor: not-allowed;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action: manipulation;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.next-player-button.ready {
+  background: #7c3aed;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 30px
+    rgba(124, 58, 237, 0.20);
+}
+
+
+.next-player-button.ready:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   PRIVACY
+========================================= */
+
+.privacy-message {
+  max-width: 300px;
+
+  margin: 13px 0 0;
+
+  color: #50515b;
+
+  font-size: 7px;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .reveal-back:hover {
+    border-color:
+      rgba(139, 92, 246, 0.40);
+
+    background:
+      rgba(124, 58, 237, 0.10);
+  }
+
+
+  .reveal-logo:hover {
+    color: #c4b5fd;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .reveal-header {
+    width:
+      calc(100% - 28px);
+
+    min-height: 64px;
+  }
+
+
+  .reveal-content {
+    width:
+      calc(100% - 28px);
+
+    padding:
+      24px
+      0
+      70px;
+  }
+
+
+  .reveal-player-info {
+    margin-bottom: 22px;
+  }
+
+
+  .reveal-player-info h1 {
+    font-size:
+      clamp(
+        28px,
+        8vw,
+        38px
+      );
+  }
+
+
+  .reveal-card {
+    min-height: 285px;
+
+    padding: 25px;
+
+    border-radius: 16px;
+  }
+
+
+  .hold-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .hold-content h2 {
+    font-size: 16px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .hold-content p {
+    margin-top: 11px;
+
+    font-size: 9px;
+  }
+
+
+  .secret-word {
+    font-size:
+      clamp(
+        30px,
+        9vw,
+        44px
+      );
+  }
+
+
+  .imposter-content h2 {
+    font-size: 18px;
+  }
+
+
+  .imposter-content h2 span {
+    font-size: 25px;
+  }
+
+
+  .next-player-button {
+    height: 52px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .reveal-header {
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .reveal-back {
+    width: 32px;
+    height: 32px;
+
+    padding: 6px;
+  }
+
+
+  .reveal-logo {
+    font-size: 11px;
+  }
+
+
+  .reveal-content {
+    width:
+      calc(100% - 24px);
+
+    padding-top: 20px;
+  }
+
+
+  .reveal-player-info {
+    margin-bottom: 19px;
+  }
+
+
+  .reveal-player-info h1 {
+    font-size: 27px;
+  }
+
+
+  .reveal-card {
+    min-height: 260px;
+
+    padding: 20px;
+  }
+
+
+  .hold-icon {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 18px;
+  }
+
+
+  .hold-content h2 {
+    font-size: 14px;
+  }
+
+
+  .hold-content p {
+    font-size: 8px;
+  }
+
+
+  .secret-word {
+    font-size: 32px;
+  }
+
+
+  .imposter-content h2 {
+    font-size: 17px;
+  }
+
+
+  .imposter-content h2 span {
+    font-size: 23px;
+  }
+
+
+  .hint-reveal {
+    margin-top: 21px;
+
+    min-width: 135px;
+
+    padding:
+      10px
+      16px;
+  }
+
+
+  .hint-reveal strong {
+    font-size: 18px;
+  }
+
+}

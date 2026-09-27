@@ -1,17 +1,29 @@
 import "./HowToPlay.css";
 
+
 function HowToPlay() {
+
+  /* =========================================
+     GO BACK TO HOME
+  ========================================= */
+
   const goBack = () => {
     window.location.hash = "";
   };
 
+
+  /* =========================================
+     PLAY GAME
+  ========================================= */
+
   const startGame = () => {
-    // Add Players page will be connected here later
-    console.log("Start game");
+    window.location.hash = "add-players";
   };
+
 
   return (
     <main className="how-page">
+
 
       {/* =========================================
           BACKGROUND
@@ -51,10 +63,14 @@ function HowToPlay() {
             HOW TO PLAY
           </div>
 
+
           <h1>
             FIND THE
-            <span>IMPOSTER.</span>
+            <span>
+              IMPOSTER.
+            </span>
           </h1>
+
 
           <p>
             One secret. One imposter.
@@ -82,11 +98,13 @@ function HowToPlay() {
               01
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 ADD PLAYERS
               </h2>
+
 
               <p>
                 Add everyone who is playing.
@@ -107,11 +125,13 @@ function HowToPlay() {
               02
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 CHOOSE A CATEGORY
               </h2>
+
 
               <p>
                 Pick a category for the secret word.
@@ -132,11 +152,13 @@ function HowToPlay() {
               03
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 HOLD TO REVEAL
               </h2>
+
 
               <p>
                 Hold your card to see your role.
@@ -144,6 +166,7 @@ function HowToPlay() {
               </p>
 
             </div>
+
 
             <div className="hold-indicator">
               HOLD
@@ -162,11 +185,13 @@ function HowToPlay() {
               04
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 GIVE CLUES
               </h2>
+
 
               <p>
                 Share examples about the word without saying it.
@@ -187,11 +212,13 @@ function HowToPlay() {
               05
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 FIND THE IMPOSTER
               </h2>
+
 
               <p>
                 The imposter uses your clues to guess the word.
@@ -212,11 +239,13 @@ function HowToPlay() {
               06
             </div>
 
+
             <div className="step-text">
 
               <h2>
                 REVEAL
               </h2>
+
 
               <p>
                 Reveal the imposter and see if they guessed the word.
@@ -237,27 +266,37 @@ function HowToPlay() {
         <div className="how-bottom">
 
 
-          {/* GO BACK */}
+          {/* =====================================
+              GO BACK
+          ===================================== */}
 
           <button
             className="how-play-button back-play-button"
+            type="button"
             onClick={goBack}
           >
+
             <span>
               GO BACK
             </span>
+
           </button>
 
 
-          {/* PLAY GAME */}
+          {/* =====================================
+              PLAY GAME
+          ===================================== */}
 
           <button
             className="how-play-button"
+            type="button"
             onClick={startGame}
           >
+
             <span>
               PLAY GAME
             </span>
+
           </button>
 
 
@@ -269,5 +308,6 @@ function HowToPlay() {
     </main>
   );
 }
+
 
 export default HowToPlay;

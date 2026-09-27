@@ -1,0 +1,1409 @@
+.starting-page {
+  min-height: 100vh;
+  background: #050507;
+  color: #f5f5f5;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.starting-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.14);
+  filter: blur(110px);
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.starting-header {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  z-index: 10;
+}
+
+.starting-back {
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+  background: transparent;
+
+  padding: 8px;
+  cursor: pointer;
+}
+
+.starting-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.starting-logo {
+  border: 0;
+  background: transparent;
+
+  color: #f5f5f5;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+}
+
+.starting-logo-icon {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 7px;
+
+  display: grid;
+  place-items: center;
+
+  background: #7c3aed;
+
+  font-size: 15px;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.starting-content {
+  width: min(600px, calc(100% - 32px));
+  margin: 0 auto;
+
+  padding: 20px 0 70px;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.starting-intro {
+  margin-bottom: 35px;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.starting-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  color: #a855f7;
+
+  margin-bottom: 12px;
+}
+
+.starting-intro h1 {
+  margin: 0;
+
+  font-size: clamp(
+    32px,
+    8vw,
+    54px
+  );
+
+  line-height: 0.95;
+
+  font-weight: 900;
+
+  letter-spacing: -0.04em;
+}
+
+.starting-intro h1 span {
+  display: block;
+  color: #a855f7;
+}
+
+.starting-intro p {
+  margin: 16px 0 0;
+
+  color: #8b8b95;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   PLAYER SECTION
+========================================= */
+
+.starting-player-section {
+  width: 100%;
+
+  animation:
+    startingSectionIn
+    0.5s ease;
+}
+
+/* =========================================
+   STARTING CARD
+========================================= */
+
+.starting-card {
+  width: min(100%, 420px);
+
+  min-height: 230px;
+
+  margin: 0 auto 22px;
+
+  padding: 35px 25px;
+
+  border-radius: 24px;
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(124, 58, 237, 0.12),
+      rgba(17, 17, 22, 0.95)
+    );
+
+  box-shadow:
+    0 20px 70px
+      rgba(0, 0, 0, 0.45),
+    inset 0 0 40px
+      rgba(124, 58, 237, 0.05);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Fast player cycling */
+
+.starting-card.selecting {
+  animation:
+    playerCardPulse
+    0.55s
+    infinite
+    alternate;
+}
+
+/* Final selected player */
+
+.starting-card.selected {
+  animation:
+    playerSelected
+    0.65s
+    ease
+    forwards;
+
+  border-color:
+    rgba(168, 85, 247, 0.7);
+
+  box-shadow:
+    0 0 60px
+      rgba(124, 58, 237, 0.2),
+    inset 0 0 45px
+      rgba(124, 58, 237, 0.08);
+}
+
+.starting-card-label {
+  color: #74747e;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.starting-card-number {
+  margin-top: 12px;
+
+  font-size: 12px;
+
+  color: #a855f7;
+
+  font-weight: 800;
+}
+
+.starting-player-name {
+  margin-top: 8px;
+
+  font-size: clamp(
+    27px,
+    7vw,
+    40px
+  );
+
+  font-weight: 900;
+
+  letter-spacing: -0.03em;
+
+  word-break: break-word;
+}
+
+.starting-card-status {
+  margin-top: 12px;
+
+  font-size: 9px;
+
+  color: #8b8b95;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+/* =========================================
+   PLAYER CARD ANIMATION
+========================================= */
+
+@keyframes playerCardPulse {
+  from {
+    transform: scale(0.985);
+    opacity: 0.75;
+  }
+
+  to {
+    transform: scale(1.015);
+    opacity: 1;
+  }
+}
+
+@keyframes playerSelected {
+  0% {
+    transform: scale(0.94);
+    opacity: 0.6;
+  }
+
+  55% {
+    transform: scale(1.045);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes startingSectionIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+/* =========================================
+   DOTS
+========================================= */
+
+.starting-dots {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-bottom: 25px;
+}
+
+.starting-dots span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #29292f;
+
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+}
+
+.starting-dots span.active {
+  width: 18px;
+
+  border-radius: 10px;
+
+  background: #a855f7;
+
+  box-shadow:
+    0 0 10px
+      rgba(168, 85, 247, 0.5);
+}
+
+/* =========================================
+   REVEAL BUTTON
+========================================= */
+
+.reveal-imposter-button {
+  width: min(100%, 420px);
+
+  min-height: 56px;
+
+  border:
+    1px solid
+    #29292f;
+
+  border-radius: 15px;
+
+  background: #111116;
+
+  color: #555560;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.1em;
+
+  cursor: not-allowed;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/*
+  Disabled state:
+  stays visibly disabled while animation is running.
+*/
+
+.reveal-imposter-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+/*
+  Enabled ONLY after selection.
+*/
+
+.reveal-imposter-button.ready {
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #9333ea
+    );
+
+  border-color: transparent;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  opacity: 1;
+
+  box-shadow:
+    0 10px 35px
+      rgba(124, 58, 237, 0.3);
+}
+
+.reveal-imposter-button.ready:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 14px 40px
+      rgba(124, 58, 237, 0.4);
+}
+
+.button-status {
+  margin-top: 13px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  color: #555560;
+}
+
+.ready-status {
+  color: #a855f7;
+}
+
+/* =========================================
+   EXIT TRANSITION
+========================================= */
+
+.phase-exiting
+  .starting-player-section {
+  animation:
+    startingCardExit
+    0.5s
+    ease
+    forwards;
+
+  pointer-events: none;
+}
+
+.phase-exiting
+  .starting-intro {
+  opacity: 0.7;
+
+  transform:
+    scale(0.98);
+
+  filter: blur(2px);
+}
+
+@keyframes startingCardExit {
+  0% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+
+  45% {
+    opacity: 0.6;
+
+    transform:
+      scale(0.97);
+
+    filter:
+      blur(3px);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(0.88)
+      translateY(-15px);
+
+    filter:
+      blur(12px);
+  }
+}
+
+/* =========================================
+   TRANSITION SPACE
+========================================= */
+
+.reveal-transition-space {
+  width: min(100%, 420px);
+
+  height: 260px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+}
+
+.transition-glow {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(168, 85, 247, 0.15);
+
+  filter: blur(50px);
+
+  animation:
+    transitionGlow
+    0.5s
+    ease
+    forwards;
+}
+
+@keyframes transitionGlow {
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.5);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.3);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(1.8);
+  }
+}
+
+/* =========================================
+   IMPOSTER REVEAL STAGE
+========================================= */
+
+.imposter-reveal-stage {
+  width: min(100%, 420px);
+
+  height: 260px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    rgba(10, 10, 14, 0.8);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.25);
+
+  animation:
+    revealStageIn
+    0.4s
+    ease;
+}
+
+.imposter-reveal-stage::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(168, 85, 247, 0.28),
+      transparent 60%
+    );
+
+  animation:
+    revealFlash
+    1.5s
+    infinite;
+}
+
+/* =========================================
+   REVEAL BLUR
+========================================= */
+
+.reveal-blur {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(168, 85, 247, 0.22);
+
+  filter:
+    blur(45px);
+
+  animation:
+    revealBlur
+    0.7s
+    infinite
+    alternate;
+}
+
+@keyframes revealBlur {
+  from {
+    transform:
+      scale(0.7)
+      rotate(0deg);
+
+    opacity: 0.3;
+  }
+
+  to {
+    transform:
+      scale(1.4)
+      rotate(180deg);
+
+    opacity: 0.8;
+  }
+}
+
+/* =========================================
+   REVEAL RINGS
+========================================= */
+
+.reveal-ring {
+  position: absolute;
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.5);
+
+  border-radius: 50%;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+.ring-one {
+  width: 80px;
+  height: 80px;
+
+  animation:
+    ringExpand
+    1.5s
+    infinite;
+}
+
+.ring-two {
+  width: 140px;
+  height: 140px;
+
+  animation:
+    ringExpand
+    1.5s
+    0.25s
+    infinite;
+}
+
+.ring-three {
+  width: 210px;
+  height: 210px;
+
+  animation:
+    ringExpand
+    1.5s
+    0.5s
+    infinite;
+}
+
+@keyframes ringExpand {
+  0% {
+    opacity: 0.8;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.5);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.7);
+  }
+}
+
+/* =========================================
+   REVEAL CENTER
+========================================= */
+
+.reveal-warning {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+
+  animation:
+    warningShake
+    0.16s
+    infinite;
+}
+
+.reveal-warning-icon {
+  width: 54px;
+  height: 54px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    #7c3aed;
+
+  box-shadow:
+    0 0 35px
+      rgba(124, 58, 237, 0.7);
+
+  font-size: 25px;
+}
+
+.reveal-shuffle {
+  position: absolute;
+
+  font-size: 60px;
+
+  font-weight: 900;
+
+  color:
+    rgba(255, 255, 255, 0.04);
+
+  animation:
+    questionShuffle
+    0.2s
+    infinite;
+}
+
+.reveal-loading {
+  position: absolute;
+
+  bottom: 32px;
+
+  display: flex;
+
+  gap: 5px;
+}
+
+.reveal-loading span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #a855f7;
+
+  animation:
+    loadingDot
+    0.8s
+    infinite
+    alternate;
+}
+
+.reveal-loading span:nth-child(2) {
+  animation-delay:
+    0.15s;
+}
+
+.reveal-loading span:nth-child(3) {
+  animation-delay:
+    0.3s;
+}
+
+@keyframes revealStageIn {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.88);
+
+    filter:
+      blur(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+}
+
+@keyframes revealFlash {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.3);
+  }
+}
+
+@keyframes warningShake {
+  0% {
+    transform:
+      translateX(-2px);
+  }
+
+  50% {
+    transform:
+      translateX(2px);
+  }
+
+  100% {
+    transform:
+      translateX(-2px);
+  }
+}
+
+@keyframes questionShuffle {
+  0% {
+    transform:
+      rotate(-8deg)
+      scale(0.9);
+  }
+
+  50% {
+    transform:
+      rotate(8deg)
+      scale(1.1);
+  }
+
+  100% {
+    transform:
+      rotate(-8deg)
+      scale(0.9);
+  }
+}
+
+@keyframes loadingDot {
+  from {
+    opacity: 0.2;
+
+    transform:
+      translateY(0);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-5px);
+  }
+}
+
+/* =========================================
+   IMPOSTER RESULT
+========================================= */
+
+.imposter-result {
+  width: min(100%, 420px);
+
+  margin: 0 auto;
+
+  animation:
+    resultAppear
+    0.8s
+    cubic-bezier(
+      0.2,
+      0.8,
+      0.2,
+      1
+    );
+}
+
+.imposter-result-label {
+  margin-bottom: 12px;
+
+  color:
+    #a855f7;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+.imposter-result-card {
+  position: relative;
+
+  min-height: 220px;
+
+  padding: 35px 20px;
+
+  border-radius: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(124, 58, 237, 0.18),
+      #111116
+    );
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.65);
+
+  box-shadow:
+    0 0 80px
+      rgba(124, 58, 237, 0.25),
+    inset 0 0 50px
+      rgba(124, 58, 237, 0.06);
+
+  animation:
+    resultCardReveal
+    0.8s
+    ease;
+}
+
+.imposter-result-glow {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(168, 85, 247, 0.25);
+
+  filter:
+    blur(60px);
+
+  animation:
+    resultGlow
+    2s
+    infinite
+    alternate;
+}
+
+.imposter-result-icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+    #7c3aed;
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 0 40px
+      rgba(124, 58, 237, 0.7);
+
+  animation:
+    iconPop
+    0.6s
+    0.25s
+    both;
+}
+
+.imposter-result-name {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 18px;
+
+  font-size: clamp(
+    30px,
+    8vw,
+    44px
+  );
+
+  font-weight: 900;
+
+  letter-spacing: -0.04em;
+
+  word-break: break-word;
+
+  animation:
+    nameReveal
+    0.7s
+    0.4s
+    both;
+}
+
+.imposter-result-status {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 8px;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+  color:
+    #85858f;
+
+  animation:
+    nameReveal
+    0.7s
+    0.55s
+    both;
+}
+
+/* =========================================
+   ROUND COMPLETE
+========================================= */
+
+.game-over-text {
+  margin-top: 24px;
+
+  color:
+    #777781;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+
+  animation:
+    nameReveal
+    0.6s
+    0.7s
+    both;
+}
+
+/* =========================================
+   PLAY AGAIN
+========================================= */
+
+.play-again-button {
+  width: 100%;
+
+  min-height: 58px;
+
+  margin-top: 18px;
+
+  border: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #9333ea
+    );
+
+  color:
+    white;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 40px
+      rgba(124, 58, 237, 0.3);
+
+  animation:
+    buttonAppear
+    0.6s
+    0.8s
+    both;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.play-again-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 16px 45px
+      rgba(124, 58, 237, 0.4);
+}
+
+/* =========================================
+   RESULT ANIMATIONS
+========================================= */
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.9);
+
+    filter:
+      blur(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+}
+
+@keyframes resultCardReveal {
+  0% {
+    transform:
+      scale(0.7);
+
+    opacity: 0;
+
+    filter:
+      blur(20px);
+  }
+
+  60% {
+    transform:
+      scale(1.04);
+
+    filter:
+      blur(0);
+  }
+
+  100% {
+    transform:
+      scale(1);
+
+    opacity: 1;
+  }
+}
+
+@keyframes iconPop {
+  from {
+    transform:
+      scale(0);
+
+    opacity: 0;
+  }
+
+  to {
+    transform:
+      scale(1);
+
+    opacity: 1;
+  }
+}
+
+@keyframes nameReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+
+    filter:
+      blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      blur(0);
+  }
+}
+
+@keyframes resultGlow {
+  from {
+    transform:
+      scale(0.8);
+
+    opacity: 0.4;
+  }
+
+  to {
+    transform:
+      scale(1.4);
+
+    opacity: 0.8;
+  }
+}
+
+@keyframes buttonAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.starting-info {
+  margin: 25px auto 0;
+
+  max-width: 400px;
+
+  color:
+    #62626c;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .starting-header {
+    padding-top: 16px;
+  }
+
+  .starting-content {
+    padding-top: 15px;
+  }
+
+  .starting-intro {
+    margin-bottom: 28px;
+  }
+
+  .starting-card {
+    min-height: 210px;
+  }
+
+  .imposter-reveal-stage {
+    height: 230px;
+  }
+
+  .reveal-transition-space {
+    height: 230px;
+  }
+
+  .imposter-result-card {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .starting-content {
+    width:
+      min(
+        calc(100% - 24px),
+        600px
+      );
+  }
+
+  .starting-card {
+    min-height: 190px;
+  }
+
+  .starting-player-name {
+    font-size: 28px;
+  }
+
+  .imposter-reveal-stage {
+    height: 210px;
+  }
+
+  .reveal-transition-space {
+    height: 210px;
+  }
+}

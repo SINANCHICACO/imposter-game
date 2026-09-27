@@ -320,7 +320,7 @@
 .category-card {
   position: relative;
 
-  min-height: 72px;
+  min-height: 76px;
 
   display: flex;
 
@@ -352,6 +352,8 @@
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
 
   transition:
     border-color 0.15s ease,
@@ -408,11 +410,18 @@
 .category-name {
   font-family: "Space Grotesk", sans-serif;
 
-  font-size: 11px;
+  /*
+    Increased from 11px
+    so category names are easier to read.
+  */
+
+  font-size: 14px;
 
   font-weight: 700;
 
-  letter-spacing: 0.7px;
+  letter-spacing: 0.5px;
+
+  line-height: 1.2;
 }
 
 
@@ -457,7 +466,7 @@
 
   align-items: center;
 
-  min-height: 58px;
+  min-height: 60px;
 }
 
 
@@ -677,7 +686,7 @@
 
 
   .category-card {
-    min-height: 68px;
+    min-height: 70px;
 
     padding: 11px;
 
@@ -685,8 +694,14 @@
   }
 
 
+  /*
+    Bigger category text on mobile.
+  */
+
   .category-name {
-    font-size: 10px;
+    font-size: 13px;
+
+    line-height: 1.2;
   }
 
 
@@ -777,7 +792,7 @@
 
 
   .category-card {
-    min-height: 64px;
+    min-height: 66px;
 
     padding: 10px;
   }
@@ -788,8 +803,14 @@
   }
 
 
+  /*
+    Still readable on small phones.
+  */
+
   .category-name {
-    font-size: 9px;
+    font-size: 12px;
+
+    line-height: 1.2;
   }
 
 

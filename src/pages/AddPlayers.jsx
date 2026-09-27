@@ -453,10 +453,6 @@ function AddPlayers({
           onClick={startGame}
         >
 
-          <span className="start-game-icon">
-            ▶
-          </span>
-
           <span>
             START GAME
           </span>

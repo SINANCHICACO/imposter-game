@@ -59,7 +59,6 @@ function Home() {
                             }}
                         >
                             <span>PLAY GAME</span>
-                            <span className="play-arrow">→</span>
                         </button>
 
                         <button
