@@ -52,7 +52,12 @@ function Home() {
 
                     <div className="home-actions">
 
-                        <button className="play-button">
+                        <button
+                            className="play-button"
+                            onClick={() => {
+                                window.location.hash = "add-players";
+                            }}
+                        >
                             <span>PLAY GAME</span>
                             <span className="play-arrow">→</span>
                         </button>

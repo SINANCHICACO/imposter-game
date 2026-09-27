@@ -244,10 +244,6 @@ function HowToPlay() {
             onClick={goBack}
           >
             <span>
-              ←
-            </span>
-
-            <span>
               GO BACK
             </span>
           </button>
@@ -261,10 +257,6 @@ function HowToPlay() {
           >
             <span>
               PLAY GAME
-            </span>
-
-            <span>
-              →
             </span>
           </button>
 

@@ -1,0 +1,800 @@
+/* =========================================
+   ADD PLAYERS PAGE
+========================================= */
+
+.players-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(124, 58, 237, 0.15),
+      transparent 30%
+    ),
+    #050507;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.players-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(100px);
+
+  z-index: 0;
+}
+
+
+.players-glow-one {
+  width: 300px;
+  height: 300px;
+
+  top: 20%;
+  right: -160px;
+
+  background: rgba(124, 58, 237, 0.10);
+}
+
+
+.players-glow-two {
+  width: 250px;
+  height: 250px;
+
+  bottom: 5%;
+  left: -150px;
+
+  background: rgba(139, 92, 246, 0.08);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.players-header {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(760px, calc(100% - 32px));
+
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.players-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.players-logo-icon {
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #8b5cf6;
+
+  border-radius: 50%;
+
+  color: #a855f7;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.players-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(600px, calc(100% - 32px));
+
+  margin: 0 auto;
+
+  padding: 20px 0 90px;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.players-intro {
+  margin-bottom: 30px;
+}
+
+
+.players-eyebrow {
+  margin-bottom: 10px;
+
+  color: #a855f7;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+
+.players-intro h1 {
+  margin: 0;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(44px, 10vw, 68px);
+
+  line-height: 0.9;
+
+  letter-spacing: -3px;
+
+  font-weight: 700;
+}
+
+
+.players-intro h1 span {
+  display: block;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+
+.players-intro p {
+  margin: 16px 0 0;
+
+  color: #8f9099;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.players-section,
+.setup-section {
+  margin-bottom: 22px;
+}
+
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+
+.section-heading > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.section-number {
+  color: #8b5cf6;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+.section-heading h2 {
+  margin: 0;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.player-count {
+  min-width: 24px;
+  height: 24px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(139, 92, 246, 0.25);
+
+  border-radius: 50%;
+
+  color: #a855f7;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PLAYER LIST
+========================================= */
+
+.player-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.player-input-row {
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.player-input-row:focus-within {
+  border-color: rgba(139, 92, 246, 0.55);
+
+  background: rgba(124, 58, 237, 0.05);
+}
+
+
+.player-number {
+  width: 24px;
+
+  flex-shrink: 0;
+
+  color: #6f707a;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+.player-input-row input {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 12px;
+}
+
+
+.player-input-row input::placeholder {
+  color: #666873;
+}
+
+
+.remove-player {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #777883;
+
+  font-size: 17px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.remove-player:active {
+  transform: scale(0.92);
+}
+
+
+/* =========================================
+   ADD PLAYER
+========================================= */
+
+.add-player-button {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px dashed rgba(139, 92, 246, 0.45);
+
+  border-radius: 9px;
+
+  background: rgba(124, 58, 237, 0.04);
+
+  color: #b79cff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.add-player-plus {
+  font-size: 20px;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   SETUP NAVIGATION
+========================================= */
+
+.setup-navigation {
+  width: 100%;
+
+  min-height: 67px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  color: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.setup-navigation.selected {
+  border-color: rgba(139, 92, 246, 0.40);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.12),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+
+.setup-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(139, 92, 246, 0.30);
+
+  border-radius: 8px;
+
+  color: #a855f7;
+
+  font-size: 17px;
+}
+
+
+.setup-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.setup-info strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.setup-info small {
+  color: #747580;
+
+  font-size: 9px;
+}
+
+
+.setup-arrow {
+  flex-shrink: 0;
+
+  color: #a855f7;
+
+  font-size: 18px;
+}
+
+
+/* =========================================
+   START GAME
+========================================= */
+
+.start-game-button {
+  width: 100%;
+
+  height: 54px;
+
+  margin-top: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #555660;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  cursor: not-allowed;
+
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.start-game-button.ready {
+  background: #7c3aed;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.20);
+}
+
+
+.start-game-button.ready:active {
+  transform: scale(0.98);
+}
+
+
+.start-game-icon {
+  font-size: 10px;
+}
+
+
+.start-game-arrow {
+  margin-left: 6px;
+
+  font-size: 16px;
+}
+
+
+.start-game-note {
+  margin: 9px 0 0;
+
+  color: #62636d;
+
+  text-align: center;
+
+  font-size: 8px;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .players-logo:hover {
+    color: #c4b5fd;
+  }
+
+
+  .add-player-button:hover {
+    background: rgba(124, 58, 237, 0.09);
+
+    border-color: rgba(139, 92, 246, 0.70);
+  }
+
+
+  .setup-navigation:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+
+    background: rgba(124, 58, 237, 0.06);
+  }
+
+
+  .remove-player:hover {
+    border-color: rgba(239, 68, 68, 0.30);
+
+    color: #ffffff;
+  }
+
+
+  .start-game-button.ready:hover {
+    background: #8b5cf6;
+
+    box-shadow:
+      0 0 35px rgba(124, 58, 237, 0.35);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .players-header {
+    width: calc(100% - 28px);
+
+    min-height: 64px;
+  }
+
+
+  .players-content {
+    width: calc(100% - 28px);
+
+    padding-top: 18px;
+
+    padding-bottom: 80px;
+  }
+
+
+  .players-intro {
+    margin-bottom: 25px;
+  }
+
+
+  .players-intro h1 {
+    font-size: clamp(42px, 12vw, 56px);
+
+    letter-spacing: -2.5px;
+  }
+
+
+  .players-intro p {
+    font-size: 11px;
+  }
+
+
+  .player-input-row {
+    min-height: 52px;
+
+    padding: 0 10px;
+  }
+
+
+  .player-number {
+    width: 21px;
+  }
+
+
+  .player-input-row input {
+    font-size: 11px;
+  }
+
+
+  .setup-navigation {
+    min-height: 63px;
+  }
+
+
+  .start-game-button {
+    height: 52px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .players-content {
+    width: calc(100% - 24px);
+  }
+
+
+  .players-intro h1 {
+    font-size: 40px;
+
+    letter-spacing: -2.2px;
+  }
+
+
+  .section-heading h2 {
+    font-size: 10px;
+  }
+
+
+  .player-input-row {
+    min-height: 50px;
+  }
+
+
+  .setup-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .setup-info strong {
+    font-size: 10px;
+  }
+
+
+  .setup-info small {
+    font-size: 8px;
+  }
+
+}
