@@ -6,8 +6,11 @@
   position: relative;
 
   width: 100%;
+
+  height: 100vh;
   min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
 
   overflow: hidden;
 
@@ -70,7 +73,7 @@
 .home-header {
   position: relative;
 
-  z-index: 20;
+  z-index: 30;
 
   width: min(1180px, calc(100% - 48px));
 
@@ -82,11 +85,13 @@
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 
-/* Logo */
+/* =========================================
+   LOGO
+========================================= */
 
 .home-logo {
   display: flex;
@@ -126,39 +131,6 @@
 }
 
 
-/* Menu */
-
-.menu-button {
-  width: 39px;
-  height: 39px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 6px;
-
-  border: 1px solid rgba(255, 255, 255, 0.10);
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.02);
-
-  cursor: pointer;
-}
-
-.menu-button span {
-  width: 14px;
-  height: 1px;
-
-  background: #ffffff;
-}
-
-
 /* =========================================
    HERO
 ========================================= */
@@ -170,7 +142,7 @@
 
   width: min(1180px, calc(100% - 48px));
 
-  min-height: calc(100svh - 82px);
+  height: calc(100vh - 82px);
 
   margin: 0 auto;
 
@@ -189,13 +161,15 @@
 .home-content {
   position: relative;
 
-  z-index: 10;
+  z-index: 20;
 
   padding-bottom: 65px;
 }
 
 
-/* Eyebrow */
+/* =========================================
+   EYEBROW
+========================================= */
 
 .home-eyebrow {
   display: flex;
@@ -268,12 +242,14 @@
 
   gap: 20px;
 
-  /* SPACE BETWEEN TITLE AND BUTTONS */
+  /* Space between title and buttons */
   margin-top: 30px;
 }
 
 
-/* Play button */
+/* =========================================
+   PLAY BUTTON
+========================================= */
 
 .play-button {
   min-width: 170px;
@@ -304,22 +280,20 @@
 
   cursor: pointer;
 
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color: transparent;
+
+  -webkit-user-select: none;
+  user-select: none;
+
   box-shadow:
     0 0 28px rgba(124, 58, 237, 0.20);
 
   transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.play-button:hover {
-  background: #8b5cf6;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 0 35px rgba(139, 92, 246, 0.40);
+    transform 0.12s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .play-arrow {
@@ -327,7 +301,9 @@
 }
 
 
-/* How to play */
+/* =========================================
+   HOW TO PLAY
+========================================= */
 
 .how-button {
   height: 50px;
@@ -350,26 +326,40 @@
 
   cursor: pointer;
 
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color: transparent;
+
+  -webkit-user-select: none;
+  user-select: none;
+
   transition:
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.how-button:hover {
-  color: #ffffff;
-
-  border-color: rgba(139, 92, 246, 0.65);
+    transform 0.12s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
 }
 
 
 /* =========================================
-   CHARACTER
+   BUTTON PRESS
+========================================= */
+
+.play-button:active,
+.how-button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   CHARACTER - DESKTOP
 ========================================= */
 
 .home-character {
   position: relative;
 
-  height: min(720px, calc(100svh - 105px));
+  height: min(720px, calc(100vh - 105px));
 
   display: flex;
 
@@ -378,10 +368,14 @@
   justify-content: center;
 
   overflow: visible;
+
+  background: transparent;
 }
 
 
-/* Character image */
+/* =========================================
+   CHARACTER IMAGE - DESKTOP
+========================================= */
 
 .character-image {
   position: relative;
@@ -390,11 +384,15 @@
 
   width: min(700px, 118%);
 
-  height: 100%;
+  height: auto;
+
+  display: block;
 
   object-fit: contain;
 
   object-position: center bottom;
+
+  background: transparent;
 
   filter:
     drop-shadow(
@@ -406,7 +404,9 @@
 }
 
 
-/* Character glow */
+/* =========================================
+   CHARACTER GLOW
+========================================= */
 
 .character-glow {
   position: absolute;
@@ -435,7 +435,9 @@
 }
 
 
-/* Decorative rings */
+/* =========================================
+   DECORATIVE RINGS
+========================================= */
 
 .character-ring {
   position: absolute;
@@ -480,15 +482,19 @@
     width: calc(100% - 40px);
   }
 
+
   .home-hero {
     width: calc(100% - 40px);
 
-    grid-template-columns: 1fr;
+    height: calc(100vh - 82px);
 
-    min-height: calc(100svh - 82px);
+    min-height: 0;
+
+    grid-template-columns: 1fr;
 
     padding-top: 35px;
   }
+
 
   .home-content {
     display: flex;
@@ -502,9 +508,11 @@
     padding-bottom: 0;
   }
 
+
   .home-eyebrow {
     justify-content: center;
   }
+
 
   .home-actions {
     justify-content: center;
@@ -512,19 +520,26 @@
     margin-top: 24px;
   }
 
+
   .home-character {
-    height: 55svh;
+    height: 55vh;
 
     min-height: 420px;
 
     margin-top: 15px;
   }
 
+
   .character-image {
     width: min(650px, 100%);
 
-    height: 100%;
+    height: auto;
+
+    max-height: 100%;
+
+    object-fit: contain;
   }
+
 
   .character-ring-outer {
     width: 430px;
@@ -533,12 +548,14 @@
     top: 17%;
   }
 
+
   .character-ring-inner {
     width: 360px;
     height: 360px;
 
     top: 22%;
   }
+
 
   .character-glow {
     top: 20%;
@@ -552,24 +569,48 @@
 
 @media (max-width: 600px) {
 
-  .home-page {
-    min-height: 100svh;
+  /* =====================================
+     PAGE
+  ===================================== */
 
-    height: 100svh;
+  .home-page {
+    width: 100%;
+
+    height: 100dvh;
+
+    min-height: 100dvh;
+
+    overflow: hidden;
+
+    padding-bottom: env(safe-area-inset-bottom);
+
+    background:
+      radial-gradient(
+        circle at 50% 58%,
+        rgba(124, 58, 237, 0.16),
+        transparent 40%
+      ),
+      #050507;
   }
 
 
-  /* HEADER */
+  /* =====================================
+     HEADER
+  ===================================== */
 
   .home-header {
     width: calc(100% - 28px);
 
     height: 68px;
+
+    margin: 0 auto;
   }
+
 
   .home-logo {
     gap: 8px;
   }
+
 
   .logo-icon {
     width: 27px;
@@ -577,6 +618,7 @@
 
     font-size: 13px;
   }
+
 
   .logo-name {
     font-size: 13px;
@@ -594,7 +636,7 @@
 
     width: 100%;
 
-    height: calc(100svh - 68px);
+    height: calc(100dvh - 68px);
 
     min-height: 0;
 
@@ -604,7 +646,9 @@
 
     display: block;
 
-    overflow: hidden;
+    overflow: visible;
+
+    background: transparent;
   }
 
 
@@ -631,7 +675,9 @@
   }
 
 
-  /* Eyebrow */
+  /* =====================================
+     EYEBROW
+  ===================================== */
 
   .home-eyebrow {
     justify-content: center;
@@ -644,7 +690,9 @@
   }
 
 
-  /* Title */
+  /* =====================================
+     TITLE
+  ===================================== */
 
   .home-title {
     font-size: clamp(43px, 13.5vw, 62px);
@@ -670,26 +718,24 @@
 
     gap: 8px;
 
-    /* IMPORTANT:
-       creates visible space after title */
     margin-top: 22px;
   }
+
 
   .play-button,
   .how-button {
     width: min(284px, 100%);
-  }
 
-  .play-button,
-  .how-button {
     height: 45px;
   }
+
 
   .play-button {
     min-width: 0;
 
     font-size: 9px;
   }
+
 
   .how-button {
     font-size: 8px;
@@ -698,7 +744,11 @@
 
   /* =====================================
      CHARACTER
-     FIXED TO BOTTOM OF MOBILE HERO
+     
+     Anchored to bottom.
+     VH controls its area.
+     The image itself keeps
+     its natural aspect ratio.
   ===================================== */
 
   .home-character {
@@ -712,11 +762,12 @@
 
     width: 100%;
 
-    height: 52svh;
+    height: 58svh;
 
     min-height: 0;
 
     margin: 0;
+    padding: 0;
 
     display: flex;
 
@@ -726,37 +777,48 @@
 
     overflow: visible;
 
+    background: transparent;
+
     pointer-events: none;
   }
 
 
-  /* Character image */
+  /* =====================================
+     CHARACTER IMAGE
+     
+     IMPORTANT:
+     Don't force height: 100%.
+     This prevents the suit from
+     being cropped.
+  ===================================== */
 
   .character-image {
     position: absolute;
+
+    z-index: 5;
 
     left: 50%;
     bottom: 0;
 
     transform: translateX(-50%);
 
-    z-index: 5;
+    width: min(100%, 390px);
 
-    /*
-      Keep the entire character inside
-      the left/right edges.
-    */
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-    object-position: center bottom;
+    height: auto;
 
     max-width: 390px;
 
-    max-height: 100%;
+    max-height: none;
+
+    display: block;
+
+    margin: 0;
+
+    object-fit: initial;
+
+    object-position: initial;
+
+    background: transparent;
 
     filter:
       drop-shadow(
@@ -768,39 +830,60 @@
   }
 
 
-  /* Glow */
+  /* =====================================
+     CHARACTER GLOW
+  ===================================== */
 
   .character-glow {
-    width: 290px;
-    height: 290px;
+    position: absolute;
+
+    z-index: 1;
+
+    width: 310px;
+
+    height: 310px;
 
     left: 50%;
 
-    top: 28%;
+    top: 24%;
 
     transform: translate(-50%, -50%);
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(124, 58, 237, 0.22),
+        rgba(124, 58, 237, 0.06) 55%,
+        transparent 72%
+      );
 
     filter: blur(20px);
   }
 
 
-  /* Outer ring */
+  /* =====================================
+     OUTER RING
+  ===================================== */
 
   .character-ring-outer {
-    width: min(320px, 82vw);
-    height: min(320px, 82vw);
+    width: min(340px, 86vw);
 
-    top: 20%;
+    height: min(340px, 86vw);
+
+    top: 17%;
   }
 
 
-  /* Inner ring */
+  /* =====================================
+     INNER RING
+  ===================================== */
 
   .character-ring-inner {
-    width: min(275px, 70vw);
-    height: min(275px, 70vw);
+    width: min(290px, 74vw);
 
-    top: 25%;
+    height: min(290px, 74vw);
+
+    top: 22%;
   }
 }
 
@@ -811,23 +894,51 @@
 
 @media (max-width: 380px) {
 
-  .home-hero {
-    padding-top: 22px;
+  .home-page {
+    height: 100dvh;
+
+    min-height: 100dvh;
   }
+
+
+  .home-header {
+    height: 64px;
+
+    width: calc(100% - 24px);
+  }
+
+
+  .home-hero {
+    height: calc(100dvh - 64px);
+
+    padding: 20px 12px 0;
+  }
+
 
   .home-eyebrow {
     margin-bottom: 15px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 1.8px;
   }
+
 
   .home-title {
     font-size: 42px;
 
+    line-height: 0.92;
+
     letter-spacing: -2.8px;
   }
 
+
   .home-actions {
     margin-top: 20px;
+
+    gap: 7px;
   }
+
 
   .play-button,
   .how-button {
@@ -836,18 +947,63 @@
     height: 43px;
   }
 
-  .home-character {
-    height: 50svh;
+
+  .play-button {
+    font-size: 8.5px;
   }
+
+
+  .how-button {
+    font-size: 7.5px;
+  }
+
+
+  /* =====================================
+     CHARACTER
+  ===================================== */
+
+  .home-character {
+    height: 58svh;
+
+    bottom: 0;
+
+    overflow: visible;
+  }
+
+
+  .character-image {
+    width: min(100%, 360px);
+
+    height: auto;
+
+    max-width: 360px;
+
+    max-height: none;
+  }
+
 
   .character-ring-outer {
-    width: 290px;
-    height: 290px;
+    width: 300px;
+
+    height: 300px;
+
+    top: 17%;
   }
 
+
   .character-ring-inner {
-    width: 250px;
-    height: 250px;
+    width: 255px;
+
+    height: 255px;
+
+    top: 22%;
+  }
+
+
+  .character-glow {
+    width: 270px;
+
+    height: 270px;
   }
 }
 
@@ -858,28 +1014,177 @@
 
 @media (max-width: 600px) and (max-height: 700px) {
 
-  .home-hero {
-    padding-top: 18px;
+  .home-page {
+    height: 100dvh;
+
+    min-height: 100dvh;
   }
 
-  .home-eyebrow {
-    margin-bottom: 13px;
+
+  .home-header {
+    height: 64px;
   }
+
+
+  .home-hero {
+    height: calc(100dvh - 64px);
+
+    padding-top: 17px;
+  }
+
+
+  .home-eyebrow {
+    margin-bottom: 12px;
+  }
+
 
   .home-title {
     font-size: 40px;
+
+    letter-spacing: -2.7px;
   }
 
+
   .home-actions {
-    margin-top: 18px;
+    margin-top: 17px;
+
+    gap: 7px;
   }
+
 
   .play-button,
   .how-button {
     height: 41px;
   }
 
+
   .home-character {
-    height: 47svh;
+    height: 55svh;
+
+    bottom: 0;
+
+    overflow: visible;
+  }
+
+
+  .character-image {
+    width: min(100%, 350px);
+
+    height: auto;
+
+    max-width: 350px;
+
+    max-height: none;
+  }
+}
+
+
+/* =========================================
+   IOS SAFARI / VIEWPORT
+========================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+
+  min-height: 100%;
+
+  margin: 0;
+}
+
+body {
+  background: #050507;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   MOBILE SAFARI
+========================================= */
+
+@media (max-width: 600px) {
+
+  .home-page {
+    height: 100dvh;
+
+    min-height: 100dvh;
+
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+
+  .home-hero {
+    height: calc(100dvh - 68px);
+
+    min-height: 0;
+  }
+
+
+  .home-character {
+    bottom: 0;
+  }
+}
+
+
+/* =========================================
+   SMALL iPHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .home-page {
+    height: 100dvh;
+
+    min-height: 100dvh;
+  }
+
+
+  .home-hero {
+    height: calc(100dvh - 64px);
+  }
+
+
+  .home-character {
+    bottom: 0;
+  }
+}
+
+
+/* =========================================
+   FAST TOUCH RESPONSE
+========================================= */
+
+button {
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/* =========================================
+   DESKTOP HOVER ONLY
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .play-button:hover {
+    background: #8b5cf6;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 0 35px rgba(139, 92, 246, 0.40);
+  }
+
+
+  .how-button:hover {
+    color: #ffffff;
+
+    border-color: rgba(139, 92, 246, 0.65);
   }
 }
