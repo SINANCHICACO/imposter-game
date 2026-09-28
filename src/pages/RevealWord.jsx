@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./RevealWord.css";
 import backArrow from "../assets/back-arrow.png";
-
 
 function RevealWord({
   playerName,
@@ -16,51 +15,63 @@ function RevealWord({
   onNext,
   goTo,
 }) {
+  const [isHolding, setIsHolding] = useState(false);
+  const [hasRevealed, setHasRevealed] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const [isHolding, setIsHolding] =
-    useState(false);
+  /*
+    Each player gets their own color.
 
-  const [hasRevealed, setHasRevealed] =
-    useState(false);
+    Player 1 → Purple
+    Player 2 → Blue
+    Player 3 → Green
+    Player 4 → Yellow
+    Player 5 → Orange
+    Player 6 → Pink
+    Player 7 → Teal
+    Player 8 → Red
 
+    After Player 8, colors repeat.
+  */
+  const playerColor =
+    ((playerNumber - 1) % 8) + 1;
+
+  /*
+    Reset reveal state whenever
+    the player changes.
+  */
+  useEffect(() => {
+    setIsHolding(false);
+    setHasRevealed(false);
+    setIsTransitioning(false);
+  }, [playerNumber]);
 
   /* =========================================
      START HOLD
   ========================================= */
 
   const handlePressStart = (event) => {
+    if (isTransitioning) return;
 
     event.preventDefault();
-
-    /*
-      Capture the pointer.
-
-      This is important on mobile because
-      a finger can move slightly while holding.
-      Without pointer capture, onPointerLeave
-      can fire and reveal would disappear.
-    */
 
     try {
       event.currentTarget.setPointerCapture(
         event.pointerId
       );
     } catch (error) {
-      // Pointer capture may not be available
-      // in some browsers.
+      // Ignore pointer capture errors.
     }
 
     setIsHolding(true);
     setHasRevealed(true);
   };
 
-
   /* =========================================
      END HOLD
   ========================================= */
 
   const handlePressEnd = (event) => {
-
     event.preventDefault();
 
     setIsHolding(false);
@@ -80,16 +91,13 @@ function RevealWord({
     }
   };
 
-
   /* =========================================
      CANCEL HOLD
   ========================================= */
 
   const handlePressCancel = () => {
-
     setIsHolding(false);
   };
-
 
   /* =========================================
      CAN GO NEXT
@@ -97,12 +105,35 @@ function RevealWord({
 
   const canGoNext =
     hasRevealed &&
-    !isHolding;
+    !isHolding &&
+    !isTransitioning;
 
+  /* =========================================
+     NEXT PLAYER
+  ========================================= */
+
+  const handleNextPlayer = () => {
+    if (!canGoNext) return;
+
+    setIsTransitioning(true);
+
+    /*
+      Allow the transition animation
+      to play before moving to the next player.
+    */
+    setTimeout(() => {
+      onNext();
+    }, 700);
+  };
 
   return (
-    <main className="reveal-page">
-
+    <main
+      className={`reveal-page ${
+        isTransitioning
+          ? "page-transitioning"
+          : ""
+      }`}
+    >
 
       {/* =====================================
           BACKGROUND
@@ -117,7 +148,6 @@ function RevealWord({
 
       <header className="reveal-header">
 
-
         {/* BACK BUTTON */}
 
         <button
@@ -125,13 +155,12 @@ function RevealWord({
           type="button"
           onClick={() => goTo("add-players")}
           aria-label="Go back"
+          disabled={isTransitioning}
         >
-
           <img
             src={backArrow}
             alt=""
           />
-
         </button>
 
 
@@ -142,8 +171,8 @@ function RevealWord({
           type="button"
           onClick={() => goTo("home")}
           aria-label="Go to home"
+          disabled={isTransitioning}
         >
-
           <span className="reveal-logo-icon">
             ?
           </span>
@@ -151,7 +180,6 @@ function RevealWord({
           <span>
             IMPOSTER
           </span>
-
         </button>
 
 
@@ -197,7 +225,7 @@ function RevealWord({
         ===================================== */}
 
         <div
-          className={`reveal-card ${
+          className={`reveal-card player-color-${playerColor} ${
             isHolding
               ? "holding"
               : ""
@@ -228,18 +256,15 @@ function RevealWord({
           }
         >
 
-
           {/* ===================================
               CARD NUMBER
           =================================== */}
 
           <div className="reveal-card-number">
-
             {String(playerNumber).padStart(
               2,
               "0"
             )}
-
           </div>
 
 
@@ -252,7 +277,7 @@ function RevealWord({
             <div className="hold-content">
 
               <div className="hold-icon">
-                •
+                <span></span>
               </div>
 
               <h2>
@@ -367,11 +392,13 @@ function RevealWord({
 
         <div className="reveal-instruction">
 
-          {isHolding
-            ? "KEEP HOLDING"
-            : hasRevealed
-              ? "RELEASED — WORD HIDDEN"
-              : "PRESS AND HOLD THE CARD"}
+          {isTransitioning
+            ? "PASS THE PHONE"
+            : isHolding
+              ? "KEEP HOLDING"
+              : hasRevealed
+                ? "RELEASED — WORD HIDDEN"
+                : "PRESS AND HOLD THE CARD"}
 
         </div>
 
@@ -385,17 +412,44 @@ function RevealWord({
             canGoNext
               ? "ready"
               : ""
+          } ${
+            isTransitioning
+              ? "transitioning"
+              : ""
           }`}
+
           type="button"
+
           disabled={!canGoNext}
-          onClick={onNext}
+
+          onClick={handleNextPlayer}
         >
 
-          <span>
-            {playerNumber === totalPlayers
-              ? "EVERYONE READY"
-              : "NEXT PLAYER"}
-          </span>
+          {isTransitioning ? (
+
+            <>
+              <span className="next-loading">
+
+                <i></i>
+                <i></i>
+                <i></i>
+
+              </span>
+
+              <span>
+                PASS THE PHONE
+              </span>
+            </>
+
+          ) : (
+
+            <span>
+              {playerNumber === totalPlayers
+                ? "EVERYONE READY"
+                : "NEXT PLAYER"}
+            </span>
+
+          )}
 
         </button>
 
@@ -405,15 +459,61 @@ function RevealWord({
         ===================================== */}
 
         <p className="privacy-message">
-          Pass the phone to the next player
-          without showing the card.
+
+          {isTransitioning
+            ? playerNumber === totalPlayers
+              ? "Preparing the starting player..."
+              : "Get ready for the next player."
+            : "Pass the phone to the next player without showing the card."}
+
         </p>
 
       </section>
 
+
+      {/* =====================================
+          PASS PHONE TRANSITION
+      ===================================== */}
+
+      {isTransitioning && (
+
+        <div className="pass-phone-overlay">
+
+          <div className="pass-phone-glow"></div>
+
+          <div className="pass-phone-content">
+
+            <div className="pass-phone-icon">
+              <span>→</span>
+            </div>
+
+            <span className="pass-phone-small">
+              PLAYER {playerNumber}
+            </span>
+
+            <h2>
+              PASS
+              <span>THE PHONE</span>
+            </h2>
+
+            <div className="pass-phone-line">
+              <span></span>
+            </div>
+
+            <p>
+              {playerNumber === totalPlayers
+                ? "Everyone is ready"
+                : "Next player is up"}
+            </p>
+
+          </div>
+
+        </div>
+
+      )}
+
     </main>
   );
 }
-
 
 export default RevealWord;
