@@ -918,3 +918,130 @@
   }
 
 }
+
+
+/* DRAG AND DROP PLAYER REORDERING */
+
+.drag-instruction {
+  margin: 0 0 12px;
+  color: #85818f;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  touch-action: pan-y;
+}
+
+.player-input-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 54px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.player-drag-handle {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 36px;
+  padding: 8px 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 3px);
+  grid-template-rows: repeat(3, 3px);
+  align-content: center;
+  justify-content: center;
+  gap: 3px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: grab;
+
+  /* Allows dragging with touch without scrolling the page
+     while the user holds this handle. */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player-drag-handle span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #8b7da5;
+  pointer-events: none;
+}
+
+.player-drag-handle:active {
+  cursor: grabbing;
+  background: rgba(139, 92, 246, 0.18);
+}
+
+.player-input-row.is-dragging {
+  z-index: 5;
+  border-color: rgba(168, 85, 247, 0.95);
+  background: rgba(124, 58, 237, 0.18);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(168, 85, 247, 0.2);
+  transform: scale(1.015);
+  opacity: 0.95;
+}
+
+.player-input-row.is-drag-over:not(.is-dragging) {
+  border-color: rgba(168, 85, 247, 0.8);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.player-input-row input {
+  min-width: 0;
+  flex: 1;
+  min-height: 52px;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.2;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+
+.player-input-row input::placeholder {
+  color: #666873;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .player-input-row {
+    min-height: 54px;
+    padding: 0 10px;
+  }
+
+  .player-input-row input {
+    min-height: 52px;
+    font-size: 16px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .player-drag-handle:hover {
+    background: rgba(139, 92, 246, 0.12);
+  }
+}
